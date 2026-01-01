@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Health Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Health Tracker App</h1>
+
+<div class="card">
+  <h3>💧 Water Intake</h3>
+  <button onclick="addWater()">Add 1 Glass</button>
+  <p id="water">0 Glass</p>
+</div>
+
+<div class="card">
+  <h3>👣 Steps</h3>
+  <input type="number" id="stepsInput" placeholder="Enter steps">
+  <button onclick="addSteps()">Save Steps</button>
+  <p id="steps">0 Steps</p>
+</div>
+
+<div class="card">
+  <h3>😴 Sleep</h3>
+  <input type="number" id="sleepInput" placeholder="Hours slept">
+  <button onclick="addSleep()">Save Sleep</button>
+  <p id="sleep">0 Hours</p>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
