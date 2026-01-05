@@ -31,26 +31,20 @@ function generateReport() {
 
   document.getElementById("report").innerText =
     `Steps: ${steps} Steps | Sleep: ${sleep} Hours | Water: ${water} Glass`;
+
+  // 🔥 Calories calculation
+  let calories = steps * 0.04;
+  document.getElementById("calories").innerText =
+    calories.toFixed(2) + " Calories";
 }
+function startBreak() {
+  document.getElementById("breakStatus").innerText =
+    "Timer started. Break after 25 minutes";
 
-window.onload = generateReport;
-
-// Load saved data on page load
-window.onload = function () {
-  if (localStorage.getItem("water")) {
-    document.getElementById("water").innerText =
-      localStorage.getItem("water") + " Glass";
-  }
-
-  if (localStorage.getItem("steps")) {
-    document.getElementById("steps").innerText =
-      localStorage.getItem("steps") + " Steps";
-  }
-
-  if (localStorage.getItem("sleep")) {
-    document.getElementById("sleep").innerText =
-      localStorage.getItem("sleep") + " Hours";
-  }
-
-  generateReport();
-};
+  setTimeout(() => {
+    alert("⏰ Time for a break! Rest your eyes.");
+    document.getElementById("breakStatus").innerText =
+      "Break reminder shown";
+  }, 1500000); // 25 minutes
+}
+window.onload = generateReport
