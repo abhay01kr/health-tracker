@@ -48,3 +48,28 @@ function startBreak() {
   }, 1500000); // 25 minutes
 }
 window.onload = generateReport
+
+
+function updateStreak() {
+  let today = new Date().toISOString().split("T")[0];
+
+  let streak = parseInt(localStorage.getItem("streak")) || 0;
+  let lastDate = localStorage.getItem("lastDate");
+
+  let steps = parseInt(localStorage.getItem("steps")) || 0;
+
+  // Rule: minimum 3000 steps for streak
+  if (steps >= 3000) {
+    if (lastDate !== today) {
+      streak++;
+      localStorage.setItem("streak", streak);
+      localStorage.setItem("lastDate", today);
+    }
+  } else {
+    streak = 0;
+    localStorage.setItem("streak", streak);
+  }
+
+  document.getElementById("streak").innerText =
+    "🔥 Streak: " + streak + " day(s)";
+}
