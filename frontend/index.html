@@ -7,10 +7,30 @@
 <body>
 
 <h1>Health Tracker App</h1>
+<div class="theme-toggle">
+  <button onclick="toggleDarkMode()">🌙 Toggle Dark Mode</button>
+</div>
+
+<div class="app-container">
+
+
+<div class="card">
+  <h3>👤 User Profile</h3>
+
+  <input type="text" id="name" placeholder="Name">
+  <input type="number" id="age" placeholder="Age">
+  <input type="number" id="weight" placeholder="Weight (kg)">
+  <input type="number" id="height" placeholder="Height (cm)">
+
+  <button onclick="saveProfile()">Save Profile</button>
+
+  <p id="profileStatus">No profile saved</p>
+</div>
 
 <div class="card">
   <h3>💧 Water Intake</h3>
-  <button onclick="addWater()">Add 1 Glass</button>
+   <input type="number" id="glassInput" placeholder="Enter glass">
+  <button onclick="addWater()">save Glass</button>
   <p id="water">0 Glass</p>
 </div>
 
@@ -27,11 +47,37 @@
   <button onclick="addSleep()">Save Sleep</button>
   <p id="sleep"></p>
 </div>
+<div class="card">
+  <h3>⏰ Study Break Reminder</h3>
+  <button onclick="startBreak()">Start 25 min Timer</button>
+  <p id="breakStatus">Timer not started</p>
+</div>
 
 <div class="card">
   <h3>📊 Daily Health Report</h3>
   <p id="report">No data available</p>
 </div>
+<div class="card">
+  <h3>🔥 Calories Burned</h3>
+  <p id="calories">0 Calories</p>
+</div>
+
+<div class="card">
+  <h3>📈 Progress Chart (Steps)</h3>
+  <div id="chart" class="bar-chart"></div>
+    <p id="streak">🔥 Streak: 0 day(s)</p>
+
+  </div>
+
+  <form class="card" id="bmicalculator">
+    <h2>BMI Calculator</h2>
+    <input type="number" id="Weight" placeholder=" Enter your Weight (kg)">
+    <input type="number" id="Height" placeholder=" Enter your Height (cm)">
+    <button type="submit">Calculate BMI</button>
+    <div id="bmiREsult"></div>
+  </form>
+  </div>
+
 
 <script src="script.js"></script>
 </body>
