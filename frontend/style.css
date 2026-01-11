@@ -101,7 +101,15 @@ body.dark {
   color: #f5f5f5;
 }
 
+body.dark p {
+  color: #e0e0e0;
+}
+
 body.dark h1 {
+  color: #ffffff;
+}
+
+body.dark .card h3 {
   color: #ffffff;
 }
 
@@ -113,18 +121,40 @@ body.dark .card {
 
 body.dark input {
   background: #2c2c2c;
-  color: white;
+  /*color: white;*/
+  color: #bbbbbb;
   border: 1px solid #555;
+}
+
+body.dark input:focus {
+  outline: none;
+  border-color: #7e57c2;
+  box-shadow: 0 0 0 2px rgba(126, 87, 194, 0.4);
 }
 
 body.dark button {
   background: linear-gradient(135deg, #8e24aa, #3949ab);
 }
 
+body.dark button:hover {
+  opacity: 0.95;
+  filter: brightness(1.1);
+}
+
 .theme-toggle {
   text-align: center;
   margin-bottom: 20px;
 }
+
+body.dark #report,
+body.dark #bmiREsult {
+  color: #81c784; /* soft green */
+}
+
+body.dark .theme-toggle button {
+  background: linear-gradient(135deg, #ff7043, #8e24aa);
+}
+
 /* ===== Steps Bar Chart ===== */
 .bar-chart {
   display: flex;

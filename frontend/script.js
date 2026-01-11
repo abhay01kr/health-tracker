@@ -225,6 +225,39 @@ function handleBMISubmit(e){
 const bmiForm = document.getElementById("bmicalculator");
 bmiForm.addEventListener("submit", handleBMISubmit);
 
+function signup() {
+  const username = document.getElementById("username").value;
+  const password = document.getElementById("password").value;
+
+  if (!username || !password) {
+    document.getElementById("authMessage").innerText = "Please fill all fields";
+    return;
+  }
+
+  localStorage.setItem("user", JSON.stringify({ username, password }));
+  document.getElementById("authMessage").innerText = "Signup successful ✅";
+}
+
+function login() {
+  const username = document.getElementById("username").value;
+  const password = document.getElementById("password").value;
+
+  const savedUser = JSON.parse(localStorage.getItem("user"));
+
+  if (!savedUser) {
+    document.getElementById("authMessage").innerText = "No user found. Please signup";
+    return;
+  }
+
+  if (username === savedUser.username && password === savedUser.password) {
+    document.getElementById("authMessage").innerText = "Login successful 🎉";
+  } else {
+    document.getElementById("authMessage").innerText = "Invalid credentials ❌";
+  }
+}
+
+
+
 window.onload = function () {
   generateReport();
   drawChart();
