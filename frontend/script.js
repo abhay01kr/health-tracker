@@ -238,7 +238,7 @@ function signup() {
   document.getElementById("authMessage").innerText = "Signup successful ✅";
 }
 
-function login() {
+/*function login() {
   const username = document.getElementById("username").value;
   const password = document.getElementById("password").value;
 
@@ -254,11 +254,86 @@ function login() {
   } else {
     document.getElementById("authMessage").innerText = "Invalid credentials ❌";
   }
+}*/
+
+function login() {
+  const username = document.getElementById("username").value;
+  const password = document.getElementById("password").value;
+
+  const savedUser = JSON.parse(localStorage.getItem("user"));
+
+  if (!savedUser) {
+    document.getElementById("authMessage").innerText =
+      "No user found. Please signup";
+    return;
+  }
+
+  if (username === savedUser.username && password === savedUser.password) {
+    document.getElementById("authMessage").innerText =
+      "Login successful 🎉";
+
+    // save session
+    localStorage.setItem(
+      "loggedInUser",
+      JSON.stringify({ username })
+    );
+
+    // show logout
+    document.getElementById("logoutBtn").style.display = "inline-block";
+  } else {
+    document.getElementById("authMessage").innerText =
+      "Invalid credentials ❌";
+  }
 }
 
 
 
-window.onload = function () {
+function logout() {
+  // remove login session
+  localStorage.removeItem("loggedInUser");
+
+  // hide logout button
+  document.getElementById("logoutBtn").style.display = "none";
+
+  // message
+  document.getElementById("authMessage").innerText =
+    "Logged out successfully 👋";
+
+  // clear login inputs
+  document.getElementById("username").value = "";
+  document.getElementById("password").value = "";
+
+  // optional: clear BMI result
+  const bmiResult = document.getElementById("bmiREsult");
+  if (bmiResult) bmiResult.innerText = "";
+
+  // optional: clear history UI
+  const historyList = document.getElementById("bmiHistoryList");
+  if (historyList) historyList.innerHTML = "";
+}
+
+/*window.onload = function () {
   generateReport();
   drawChart();
+};*/
+
+window.onload = function () {
+  // load profile
+  loadProfile();
+
+  // load report & chart
+  generateReport();
+  drawChart();
+
+  // theme
+  const theme = localStorage.getItem("theme");
+  if (theme === "dark") {
+    document.body.classList.add("dark");
+  }
+
+  // login session check
+  const user = JSON.parse(localStorage.getItem("loggedInUser"));
+  if (user) {
+    document.getElementById("logoutBtn").style.display = "inline-block";
+  }
 };

@@ -174,3 +174,17 @@ body.dark .theme-toggle button {
 body.dark .bar {
   background: linear-gradient(135deg, #ff7043, #ab47bc);
 }
+
+/* ===== Logout Button ===== */
+#logoutBtn {
+  margin-left: 10px;
+  background: linear-gradient(135deg, #ef5350, #d32f2f);
+}
+
+#logoutBtn:hover {
+  opacity: 0.9;
+}
+
+body.dark #logoutBtn {
+  background: linear-gradient(135deg, #ff8a65, #e53935);
+}
