@@ -188,3 +188,11 @@ body.dark .bar {
 body.dark #logoutBtn {
   background: linear-gradient(135deg, #ff8a65, #e53935);
 }
+
+#weightChart .bar {
+  background: linear-gradient(135deg, #66bb6a, #43a047);
+}
+
+body.dark #weightChart .bar {
+  background: linear-gradient(135deg, #ffca28, #ffa000);
+}

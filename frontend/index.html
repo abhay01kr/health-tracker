@@ -30,6 +30,18 @@
   <p id="profileStatus">No profile saved</p>
 </div>
 
+<div class="card">
+  <h3>⚙️ User Settings</h3>
+
+  <input type="number" id="newWeight" placeholder="Update Weight (kg)">
+  <input type="number" id="newHeight" placeholder="Update Height (cm)">
+
+  <button onclick="updateUserSettings()">Update</button>
+
+  <p id="settingsMsg"></p>
+</div>
+
+
 <div class="card auth-card">
   <h3>Login / Signup</h3>
 
@@ -92,6 +104,11 @@
     <div id="bmiREsult"></div>
   </form>
 
+<div class="card">
+  <h3>📉 Weight History (Last 7 Days)</h3>
+  <div id="weightChart" class="bar-chart"></div>
+  <p id="weightInfo">No data available</p>
+</div>
 
   </div>
 

@@ -337,3 +337,74 @@ window.onload = function () {
     document.getElementById("logoutBtn").style.display = "inline-block";
   }
 };
+
+function updateUserSettings() {
+  const newWeight = document.getElementById("newWeight").value;
+  const newHeight = document.getElementById("newHeight").value;
+
+  if (!newWeight || !newHeight) {
+    document.getElementById("settingsMsg").innerText =
+      "Please enter both height & weight";
+    return;
+  }
+
+  // update profile
+  let profile = JSON.parse(localStorage.getItem("profile")) || {};
+  profile.weight = newWeight;
+  profile.height = newHeight;
+
+  localStorage.setItem("profile", JSON.stringify(profile));
+
+  // save weight history
+  saveWeightHistory(Number(newWeight));
+
+  // recalculate BMI
+  const bmi = CalculateBMI(newHeight, newWeight);
+  const status = calculateAndDisplayBMI(bmi);
+  document.getElementById("bmiREsult").innerText = status;
+
+  drawWeightChart();
+
+  document.getElementById("settingsMsg").innerText =
+    "Settings updated & BMI recalculated ✅";
+}
+
+function saveWeightHistory(weight) {
+  let history =
+    JSON.parse(localStorage.getItem("weightHistory")) || [];
+
+  const today = new Date().toISOString().split("T")[0];
+
+  history.push({ date: today, weight });
+
+  // sirf last 7 days
+  history = history.slice(-7);
+
+  localStorage.setItem("weightHistory", JSON.stringify(history));
+}
+
+
+function drawWeightChart() {
+  const chart = document.getElementById("weightChart");
+  chart.innerHTML = "";
+
+  const history =
+    JSON.parse(localStorage.getItem("weightHistory")) || [];
+
+  if (history.length === 0) {
+    document.getElementById("weightInfo").innerText =
+      "No weight data yet";
+    return;
+  }
+
+  history.forEach(item => {
+    const bar = document.createElement("div");
+    bar.className = "bar";
+    bar.style.height = Math.min(item.weight * 2, 100) + "px";
+    bar.title = `${item.date}: ${item.weight} kg`;
+    chart.appendChild(bar);
+  });
+
+  document.getElementById("weightInfo").innerText =
+    "Showing last " + history.length + " days";
+}
