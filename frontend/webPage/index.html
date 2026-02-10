@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Study AI Dashboard</title>
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- TOP NAVBAR (EXACT STYLE) -->
+<header class="navbar">
+  <div class="nav-left">
+    <img src="https://cdn-icons-png.flaticon.com/512/4712/4712035.png" class="logo-img">
+    <span class="logo-text">STUDY AI</span>
+  </div>
+
+  <nav class="nav-center">
+    <a class="active">Dashboard</a>
+    <a>PYQ Collections</a>
+    <a>Notes</a>
+    <a>Notes</a>
+    <a>Progress</a>
+    <a>Profile</a>
+  </nav>
+
+  <div class="nav-right">
+    <i class="fa-solid fa-user-circle"></i>
+  </div>
+</header>
+
+<!-- MAIN DASHBOARD -->
+<main class="dashboard">
+
+  <div class="grid">
+
+    <!-- DAILY CHALLENGE -->
+    <div class="card dark">
+      <h4>Daily Challenge:</h4>
+      <p>PYQ Collection</p>
+
+      <span class="small">7/10 Solved</span>
+
+      <div class="progress">
+        <div class="progress-fill"></div>
+      </div>
+
+      <div class="btn-group">
+        <button class="btn orange">Start Solving</button>
+        <button class="btn gray">Resume</button>
+      </div>
+    </div>
+
+    <!-- BOOST CONFIDENCE -->
+    <div class="card light">
+      <h3>Boost Your Confidence!</h3>
+      <p class="muted">Based on your incorrect answers</p>
+
+      <div class="action">
+        <i class="fa-solid fa-play"></i>
+        <span>Practice Wrong Questions</span>
+      </div>
+
+      <div class="action outline">
+        Generate Similar Questions
+      </div>
+    </div>
+
+    <!-- SMART NOTES -->
+    <div class="card dark">
+      <h4>Your Smart Notes</h4>
+
+      <div class="note"><i class="fa-solid fa-book"></i> Thermodynamics Rev.</div>
+      <div class="note"><i class="fa-solid fa-book"></i> Quadratic Equations</div>
+      <div class="note"><i class="fa-solid fa-book"></i> Math: Calculus</div>
+      <div class="note"><i class="fa-solid fa-book"></i> Quadratic Equations</div>
+    </div>
+
+    <!-- PERFORMANCE -->
+    <div class="card light">
+      <h4>Your Performance Summary</h4>
+
+      <div class="stats">
+        <div><strong>150</strong><span>Total Solved</span></div>
+        <div><strong>120</strong><span>Correct</span></div>
+        <div><strong>30</strong><span>Incorrect</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FLASHCARDS -->
+  <div class="card dark full">
+    <h4>Smart Flashcard Decks</h4>
+
+    <div class="flashcards">
+      <div class="flash"><img src="vector-hand-drawing-physics-education-doodle-icon-idea-set_602351-720.avif" alt=""><span>Physsics</span></div>
+      <div class="flash"><img src="hand-drawn-chemistry-background_23-2148164901.avif" alt=""><span>Chemistry</span></div>
+      <div class="flash"><img src="360_F_224336539_jM04E0hiODLQ1JWrg5WiK966Rk4BWGJ6.jpg" alt=""><span>Mathematics</span></div>
+      <div class="flash">Comic Books</div>
+    </div>
+  </div>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
